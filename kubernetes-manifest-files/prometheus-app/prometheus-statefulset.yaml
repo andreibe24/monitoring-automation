@@ -31,7 +31,12 @@ spec:
       - name: config-dir
         configMap:
           name: prometheus-config-cm
-      - name: prometheus-persistent-volume
-        hostPath:
-          path: /hostpath-dir/prometheus-data
-          type: Directory
+  volumeClaimTemplates:
+  - metadata:
+      name: prometheus-persistent-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "ceph-rbd"
+      resources:
+        requests:
+          storage: 5Gi
