@@ -38,7 +38,7 @@ data:
 
         # Default to scraping over https. If required, just disable this or change to
         # `http`.
-        scheme: https
+        scheme: http
 
         # This TLS & authorization config is used to connect to the actual scrape
         # endpoints for cluster components. This is separate to discovery auth
@@ -54,7 +54,7 @@ data:
           # so this should only be disabled in a controlled environment. You can
           # disable certificate verification by uncommenting the line below.
           #
-          # insecure_skip_verify: true
+          insecure_skip_verify: true
         authorization:
           credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
 
@@ -76,7 +76,7 @@ data:
 
         # Default to scraping over https. If required, just disable this or change to
         # `http`.
-        scheme: https
+        scheme: http
 
         # This TLS & authorization config is used to connect to the actual scrape
         # endpoints for cluster components. This is separate to discovery auth
@@ -92,7 +92,7 @@ data:
           # so this should only be disabled in a controlled environment. You can
           # disable certificate verification by uncommenting the line below.
           #
-          # insecure_skip_verify: true
+          insecure_skip_verify: true
         authorization:
           credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
 
@@ -121,7 +121,7 @@ data:
 
         # Default to scraping over https. If required, just disable this or change to
         # `http`.
-        scheme: https
+        scheme: http
 
         # Starting Kubernetes 1.7.3 the cAdvisor metrics are under /metrics/cadvisor.
         # Kubernetes CIS Benchmark recommends against enabling the insecure HTTP
@@ -143,7 +143,7 @@ data:
           # so this should only be disabled in a controlled environment. You can
           # disable certificate verification by uncommenting the line below.
           #
-          # insecure_skip_verify: true
+          insecure_skip_verify: true
         authorization:
           credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
 
