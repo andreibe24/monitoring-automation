@@ -25,3 +25,8 @@ kind create cluster      # one-node k8s cluster
 ## Use metrics from prometheus to autoscale (required for nginx HPA) - Method 2 - TODO:
 - https://towardsdatascience.com/kubernetes-hpa-with-custom-metrics-from-prometheus-9ffc201991e
 - https://artifacthub.io/packages/helm/prometheus-community/prometheus-adapter
+
+## Expose prometheus ClusterIP service on localhost
+```shell
+kubectl port-forward -n prometheus-app service/prometheus-service 9090:9090
+```
