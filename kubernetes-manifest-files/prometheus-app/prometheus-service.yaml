@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-service
+  namespace: prometheus-app
+  labels:
+    app: prometheus
+spec:
+  ports:
+  - port: 9090
+    name: prometheus
+  selector:
+    app: prometheus

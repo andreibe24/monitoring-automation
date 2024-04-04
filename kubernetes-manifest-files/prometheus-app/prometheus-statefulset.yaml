@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: prometheus-statefulset
+  namespace: prometheus-app
+spec:
+  selector:
+    matchLabels:
+      app: prometheus
+  serviceName: "nginx"
+  replicas: 1
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: prometheus
+        image: prom/prometheus:v2.51.1
+        ports:
+        - containerPort: 9090
+          name: prometheus
+        volumeMounts:
+        - name: config-dir
+          mountPath: /etc/prometheus/
+      volumes:
+      - name: config-dir
+        configMap:
+          name: prometheus-config-cm
