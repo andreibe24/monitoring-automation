@@ -15,6 +15,11 @@ spec:
       labels:
         app: prometheus
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534         # user: nobody
+        runAsGroup: 65534
+        fsGroup: 65534           # user: nobody is going to own all volumes attached to pod
       terminationGracePeriodSeconds: 10
       containers:
       - name: prometheus
