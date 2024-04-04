@@ -25,7 +25,13 @@ spec:
         volumeMounts:
         - name: config-dir
           mountPath: /etc/prometheus/
+        - name: prometheus-persistent-volume
+          mountPath: /prometheus
       volumes:
       - name: config-dir
         configMap:
           name: prometheus-config-cm
+      - name: prometheus-persistent-volume
+        hostPath:
+          path: /hostpath-dir/prometheus-data
+          type: Directory
